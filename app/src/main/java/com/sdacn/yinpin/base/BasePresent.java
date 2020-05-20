@@ -15,21 +15,46 @@ import io.reactivex.schedulers.Schedulers;
  * present基类
  * @param <V>
  */
-public abstract class BasePresent<V extends IBaseView> implements IBasePresent<V> {
+public abstract class BasePresent<V extends IBaseView> implements IBasePresent<V>{
     private WeakReference<V> mvpView;//获取V层的View
     private CompositeDisposable mCompositeDisposable;
+
+    @Override
+    public void onCreate() {
+
+    }
+
+    @Override
+    public void onResume() {
+
+    }
+
+    @Override
+    public void onPause() {
+        onUnSubscribe();
+    }
+
+    @Override
+    public void onStop() {
+
+    }
+
+    @Override
+    public void onDestroy() {
+        detatchView();
+    }
+
     @Override
     public void attachView(V view) {
         this.mvpView=new WeakReference<>(view);
     }
 
-    @Override
-    public void detatchView() {
+    private void detatchView() {
         if (mvpView != null) {
             mvpView.clear();
             mvpView=null;
         }
-        onUnSubscribe();
+
     }
 
     @Override
@@ -69,20 +94,18 @@ public abstract class BasePresent<V extends IBaseView> implements IBasePresent<V
 
             @Override
             public void onFinish() {
-                onComplete();
+                onRequestComplete();
             }
         };
         if (mCompositeDisposable == null) {
             mCompositeDisposable = new CompositeDisposable();
         }
-
         mCompositeDisposable.add(apiCallback);
-
         observable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(apiCallback);
     }
     protected abstract void onSuccessRequest(int type,Object model);
     protected abstract void onFail(String msg);
-    protected abstract void onComplete();
+    protected abstract void onRequestComplete();
 }

@@ -57,6 +57,33 @@ public class DialogUtil {
         }
         return loadingDialog;
     }
+
+    /**
+     * 菊花loading 对话框  正常模式下的 请稍后。。。
+     * @param context
+     * @return
+     */
+    public static Dialog showLoading(Context context){
+        Dialog loadingDialog=null;
+        View dialogLayout;
+        if (loadingDialog == null) {
+            LayoutInflater inflater = LayoutInflater.from(context);
+            // 得到加载view
+            dialogLayout = inflater.inflate(R.layout.layout_view_loading, null);
+            TextView loading_tv = dialogLayout.findViewById(R.id.loading_tv);
+            loadingDialog = new ProgressDialog(context, R.style.LoadingDialog);
+            loadingDialog.setCancelable(false);
+            loadingDialog.setCanceledOnTouchOutside(false);
+            loadingDialog.show();
+            loadingDialog.setContentView(dialogLayout);// 设置布局 需要在show后执行 否则报requestFeature() must be called before adding content
+            //loadingDialog.setOnDismissListener(dialog -> onLoadingDismiss());
+            loading_tv.setText("请稍后...");
+        }
+        if (context!= null && !((Activity)context).isFinishing() &&!loadingDialog.isShowing()) {
+            loadingDialog.show();
+        }
+        return loadingDialog;
+    }
     public interface LoadingDialogListener{
         void onLoadingDismiss();
     }

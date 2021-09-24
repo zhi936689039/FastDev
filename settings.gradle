@@ -1,2 +1,4 @@
-include ':app',":util"
+include ':app',
+        ':FastDev',
+        ':smart_refresh_classics'
 rootProject.name='CopyoOfTheAudio'

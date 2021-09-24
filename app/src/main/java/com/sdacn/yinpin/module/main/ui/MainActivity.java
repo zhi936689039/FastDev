@@ -1,12 +1,12 @@
 package com.sdacn.yinpin.module.main.ui;
 
+import com.mvp.mvpmodule.base.BaseActivity;
 import com.sdacn.yinpin.R;
-import com.sdacn.yinpin.base.BaseActivity;
 import com.sdacn.yinpin.module.main.present.MainPresent;
 
 import static com.sdacn.yinpin.module.main.present.MainPresent.AUDIO_TYPE;
 
-public class MainActivity extends BaseActivity<MainPresent>{
+public class MainActivity extends BaseActivity<MainPresent> {
     @Override
     protected void initPresenter() {
         mPresent=new MainPresent();

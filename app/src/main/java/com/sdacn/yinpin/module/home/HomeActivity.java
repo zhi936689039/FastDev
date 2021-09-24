@@ -3,8 +3,8 @@ package com.sdacn.yinpin.module.home;
 import android.os.Bundle;
 import android.widget.Button;
 
+import com.mvp.mvpmodule.base.BaseActivity;
 import com.sdacn.yinpin.R;
-import com.sdacn.yinpin.base.BaseActivity;
 import com.sdacn.yinpin.module.main.ui.MainActivity;
 
 import butterknife.BindView;

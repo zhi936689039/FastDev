@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Util</string>
+    <string name="loading">loading...</string>
+    <string name="net_work_error">The current network is abnormal</string>
+    <string name="allow_permission">Allow Permissions</string>
+    <string name="allow_permission_dialog">For your better experience, please go to [Settings] to enable permissions</string>
+    <string name="ok">OK</string>
+</resources>

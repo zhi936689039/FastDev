@@ -1,0 +1,56 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "31.0.0"
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            debuggable false
+        }
+        debug {
+            debuggable true
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: '../libs', include: ['*.jar','*.aar'])
+    api project(':smart_refresh_classics')
+    implementation files('libs\\libphonenumber-8.12.19.jar')
+    testImplementation dep.junit
+    api dep.androidx.appcompat
+    androidTestImplementation dep.androidx.runner
+    androidTestImplementation dep.androidx.espresso
+    api dep.androidx.constraintlayout
+    api dep.jakewharton.butterknife
+    annotationProcessor dep.jakewharton.butterknife_processor
+    api dep.eventbus
+    api dep.reactivex.rxjava
+    api dep.reactivex.rxandroid
+
+    api dep.square.retrofit
+    api dep.square.retrofit_converter_gson
+    api dep.square.okhttp_logger
+    api dep.square.retrofit_converter_scalars
+    api dep.square.adapter
+
+    api dep.bumptech.glide
+    annotationProcessor dep.bumptech.glide_processor
+    api dep.bumptech.glide_okhttp
+
+}

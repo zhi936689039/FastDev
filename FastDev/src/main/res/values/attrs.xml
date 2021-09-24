@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="OvalView">
+        <attr name="all_radius" format="dimension" />
+        <attr name="ul_radius" format="dimension" />
+        <attr name="ur_radius" format="dimension" />
+        <attr name="ll_radius" format="dimension" />
+        <attr name="lr_radius" format="dimension" />
+        <attr name="stroke_size" format="dimension" />
+        <attr name="stroke_color" format="color" />
+        <attr name="is_oval" format="boolean" />
+        <attr name="is_round_rectangle" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="CornerTabLayout">
+        <attr name="text_normal_color" format="reference|color"/>
+        <attr name="text_selected_color" format="reference|color"/>
+        <attr name="text_size" format="reference|dimension"/>
+        <attr name="text_bg_selected_color" format="reference"/>
+        <attr name="text_bg_normal_color" format="reference"/>
+        <attr name="item_width" format="integer"/>
+        <attr name="indict_drawable" format="integer"/>
+    </declare-styleable>
+</resources>

@@ -15,13 +15,9 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
+import com.mvp.mvpmodule.util.LogUtil;
 import com.sdacn.yinpin.R;
 import com.sdacn.yinpin.common.constans.Constants;
-import com.util.LogUtil;
-import com.util.gilde.CornerTransformHelper;
-import com.util.gilde.GlideCacheUtil;
-import com.util.gilde.GlideRoundTransformHelper;
-
 /**
  * Created by Frank on 2017/3/31.
  * Glide 4.0 正式版
@@ -132,76 +128,6 @@ public enum GlideHelper {
         }
 
     }
-
-    /**
-     * 不带尺寸切角
-     * @param imageView
-     * @param url
-     * @param dp
-     */
-    public void loadImage(Activity context,ImageView imageView, String url, int dp,boolean hasleftTop,boolean hasRightTop,boolean hasleftBottom,boolean hasRightBottom) {
-        if(context!=null&&!context.isFinishing()){
-            CornerTransformHelper transformation = new CornerTransformHelper(context, dp2px(context, dp));
-            //只是绘制左上角和右上角圆角
-            transformation.setExceptCorner(hasleftTop, hasRightTop, hasleftBottom, hasRightBottom);
-
-            RequestOptions options = new RequestOptions()
-                    .placeholder(defaultImg)
-                    .transform(transformation);
-            Glide.with(context)
-                    .asBitmap()
-                    .load(url)
-                    .apply(options)
-                    .into(imageView);
-        }
-
-    }
-
-
-    /**
-     * 带尺寸切角
-     * @param imageView
-     * @param url
-     * @param width
-     * @param height
-     * @param dp
-     */
-    public void loadImage(Activity context,ImageView imageView, String url, int width, int height, int dp) {
-        if(context!=null&&!context.isFinishing()){
-            RequestOptions options = new RequestOptions()
-                    .placeholder(defaultImg)
-                    .centerCrop()
-                    .transform(new RoundedCorners(dp2px(context,dp)))
-                    .override(width,height);
-            Glide.with(context)
-                    .load(url)
-                    .apply(options)
-                    .into(imageView);
-        }
-
-    }
-
-    /**
-     * 不带尺寸切角
-     * @param imageView
-     * @param url
-     * @param dp
-     */
-    public void loadImage(Activity context,ImageView imageView, String url, int dp) {
-        if(context!=null&&!context.isFinishing()){
-            RequestOptions options = new RequestOptions()
-                    .placeholder(defaultImg)
-                    .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
-                    .transform(new GlideRoundTransformHelper(context,dp));
-            Glide.with(context)
-                    .load(url)
-                    .apply(options)
-                    .into(imageView);
-        }
-
-    }
-
-
 
     /**
      * 加载圆形图片
@@ -372,11 +298,6 @@ public enum GlideHelper {
                 .build();
         return new GlideUrl(url, headers);
     }*/
-
-    public static void clearCache(Activity context){
-        GlideCacheUtil.getInstance().clearImageAllCache(context);
-    }
-
     public static int dp2px( Context context,float dp)
     {
         final float scale =context.getResources().getDisplayMetrics().density;

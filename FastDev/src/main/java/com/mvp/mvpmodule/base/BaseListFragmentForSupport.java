@@ -14,6 +14,9 @@ import com.mvp.mvpmodule.util.DialogUtil;
 import com.mvp.mvpmodule.util.ValidateUtils;
 
 import org.greenrobot.eventbus.EventBus;
+
+import java.io.Serializable;
+
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
@@ -151,6 +154,23 @@ public abstract class BaseListFragmentForSupport<P extends IBasePresent>  extend
         Intent intent = new Intent(getActivity(), targetClass);
         intent.putExtras(bundle);
         startActivityForResult(intent, requestCode);
+    }
+    protected void startActivity(Class<?> targetClass,Bundle bundle,boolean isHasAnim) {
+        Intent intent = new Intent(getActivity(), targetClass);
+        intent.putExtras(bundle);
+        startActivity(intent);
+        if(!isHasAnim){
+            getActivity().overridePendingTransition(0, 0);
+        }
+    }
+
+    protected void startActivity(Class<?> targetClass, String key, Serializable value, boolean isHasAnim) {
+        Intent intent = new Intent(getActivity(), targetClass);
+        intent.putExtra(key, value);
+        startActivity(intent);
+        if(!isHasAnim){
+            getActivity().overridePendingTransition(0, 0);
+        }
     }
     @Override
     public SmartRefreshLayout getRefreshLayout() {

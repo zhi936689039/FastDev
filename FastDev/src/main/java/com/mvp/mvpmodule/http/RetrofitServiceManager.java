@@ -64,11 +64,6 @@ public abstract class RetrofitServiceManager {
         for(Interceptor interceptor:getInterceptorList()){
             builder.addInterceptor(interceptor);
         }
-        if (BuildConfig.DEBUG) {
-            HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
-            loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-            builder.addInterceptor(loggingInterceptor);
-        }
     }
 
     protected abstract List<Interceptor> getInterceptorList();

@@ -5,6 +5,8 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Environment;
 
+import com.mvp.mvpmodule.BuildConfig;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -180,7 +182,7 @@ public class FileUtils {
                 fos.close();
             }
         } catch (IOException e) {
-            LogUtil.e("异常", "an error occured while writing file..." + e.toString());
+            LogUtil.e("异常", "an error occured while writing file..." + e.toString(), BuildConfig.DEBUG);
         }
     }
 
@@ -228,7 +230,7 @@ public class FileUtils {
                     String lineTxt = null;
                     StringBuilder sb=new StringBuilder();
                     while ((lineTxt = bufferedReader.readLine()) != null) {
-                        LogUtil.e("文件读取", "内容！！！！！！！！！！！！:" + lineTxt);
+                        LogUtil.e("文件读取", "内容！！！！！！！！！！！！:" + lineTxt, BuildConfig.DEBUG);
                         sb.append(lineTxt+"/n");
                     }
                     fileContentList.add(sb.toString());

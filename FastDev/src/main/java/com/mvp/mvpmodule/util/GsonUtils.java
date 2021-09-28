@@ -8,6 +8,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
+import com.mvp.mvpmodule.BuildConfig;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -58,7 +59,7 @@ public class GsonUtils {
             JsonParser parser = new JsonParser();
             jsonObj = parser.parse(json).getAsJsonObject();
         } catch (JsonSyntaxException e) {
-            LogUtil.e("frank", "parseJson Exception===" + e.toString());
+            LogUtil.e("frank", "parseJson Exception===" + e.toString(), BuildConfig.DEBUG);
         }
         return jsonObj;
     }
@@ -76,7 +77,7 @@ public class GsonUtils {
             T t = gson.fromJson(str, type);
             return t;
         } catch (JsonSyntaxException e) {
-            LogUtil.e("frank", "jsonToBean Exception===" + e.toString()+"\n"+str);
+            LogUtil.e("frank", "jsonToBean Exception===" + e.toString()+"\n"+str, BuildConfig.DEBUG);
 
         }
         return null;
@@ -95,7 +96,7 @@ public class GsonUtils {
             T t = gson.fromJson(data, type);
             return t;
         } catch (JsonSyntaxException e) {
-            LogUtil.e("frank", "jsonToBean Exception===" + e.toString()+"\n"+str);
+            LogUtil.e("frank", "jsonToBean Exception===" + e.toString()+"\n"+str, BuildConfig.DEBUG);
 
         }
         return null;
@@ -110,7 +111,7 @@ public class GsonUtils {
 
         } catch (JSONException e) {
             e.printStackTrace();
-            LogUtil.e("frank", "getStringFromJSON Exception===" + e.toString());
+            LogUtil.e("frank", "getStringFromJSON Exception===" + e.toString(), BuildConfig.DEBUG);
         }
         return data;
     }
@@ -123,7 +124,7 @@ public class GsonUtils {
             data = jsonObject.getLong(key2);
 
         } catch (JSONException e) {
-            LogUtil.e("frank", "getLongFormJSON Exception===" + e.toString());
+            LogUtil.e("frank", "getLongFormJSON Exception===" + e.toString(),BuildConfig.DEBUG);
         }
         return data;
     }
@@ -141,7 +142,7 @@ public class GsonUtils {
             JSONObject jsonObject = new JSONObject(json).getJSONObject(key1);
             data = jsonObject.getBoolean(key2);
         } catch (JSONException e) {
-            LogUtil.e("frank", "getBooleanFormJSON Exception===" + e.toString());
+            LogUtil.e("frank", "getBooleanFormJSON Exception===" + e.toString(), BuildConfig.DEBUG);
         }
         return data;
     }
@@ -184,7 +185,7 @@ public class GsonUtils {
             JSONObject jsonObject = new JSONObject(json);
             data = jsonObject.getBoolean(key);
         } catch (JSONException e) {
-            LogUtil.e("frank", "getBooleanFormJSON Exception===" + e.toString()+"\njson="+json+"\nkey="+key);
+            LogUtil.e("frank", "getBooleanFormJSON Exception===" + e.toString()+"\njson="+json+"\nkey="+key, BuildConfig.DEBUG);
         }
         return data;
     }
@@ -204,7 +205,7 @@ public class GsonUtils {
             JSONObject jsonObject = new JSONObject(json);
             data = jsonObject.getString(key);
         } catch (JSONException e) {
-            LogUtil.e("frank", "getStringFromJSON Exception==="+"\n"+ e.toString()+"\n【key="+key+"】json="+json);
+            LogUtil.e("frank", "getStringFromJSON Exception==="+"\n"+ e.toString()+"\n【key="+key+"】json="+json, BuildConfig.DEBUG);
         }
         return data;
     }
@@ -218,7 +219,7 @@ public class GsonUtils {
             }
             data = obj.getInt(key);
         } catch (JSONException e) {
-            LogUtil.e("frank", "getIntFromJSON Exception===" + e.toString());
+            LogUtil.e("frank", "getIntFromJSON Exception===" + e.toString(), BuildConfig.DEBUG);
         }
         return data;
     }
@@ -230,7 +231,7 @@ public class GsonUtils {
             JSONObject jsonObject = new JSONObject(json);
             data = jsonObject.getInt(key);
         } catch (JSONException e) {
-            LogUtil.e("frank", "getIntFromJSON Exception===" + e.toString());
+            LogUtil.e("frank", "getIntFromJSON Exception===" + e.toString(), BuildConfig.DEBUG);
         }
         return data;
     }
@@ -240,7 +241,7 @@ public class GsonUtils {
             JSONObject jsonObject = new JSONObject(json);
             data = jsonObject.getDouble(key);
         } catch (JSONException e) {
-            LogUtil.e("frank", "getIntFromJSON Exception===" + e.toString());
+            LogUtil.e("frank", "getIntFromJSON Exception===" + e.toString(), BuildConfig.DEBUG);
         }
         return data;
     }
@@ -252,7 +253,7 @@ public class GsonUtils {
             String dataJson = jsonObject.getString(key1);
             data = getIntFromJSON(dataJson, key2);
         } catch (JSONException e) {
-            LogUtil.e("frank", "getIntFromJSON Exception===" + e.toString());
+            LogUtil.e("frank", "getIntFromJSON Exception===" + e.toString(), BuildConfig.DEBUG);
         }
         return data;
     }
@@ -263,7 +264,7 @@ public class GsonUtils {
             JSONObject jsonObject = new JSONObject(json);
             data = jsonObject.getLong(key);
         } catch (JSONException e) {
-            LogUtil.e("frank", "getLongFromJSON Exception===" + e.toString());
+            LogUtil.e("frank", "getLongFromJSON Exception===" + e.toString(), BuildConfig.DEBUG);
         }
         return data;
     }
@@ -275,7 +276,7 @@ public class GsonUtils {
             String dataJson = jsonObject.getString(key1);
             data = getLongFromJSON(dataJson, key2);
         } catch (JSONException e) {
-            LogUtil.e("frank", "getLongFromJSON Exception===" + e.toString());
+            LogUtil.e("frank", "getLongFromJSON Exception===" + e.toString(), BuildConfig.DEBUG);
         }
         return data;
     }
@@ -291,7 +292,7 @@ public class GsonUtils {
                     return list;
                 }
             } catch (JsonSyntaxException e) {
-                LogUtil.e("frank", "jsonToBeanList_2 Exception ===" + e.toString());
+                LogUtil.e("frank", "jsonToBeanList_2 Exception ===" + e.toString(), BuildConfig.DEBUG);
             }
         }
         return new ArrayList<T>();
@@ -317,7 +318,7 @@ public class GsonUtils {
                     return list;
                 }
             } catch (JsonSyntaxException je) {
-                LogUtil.e("frank", "jsonToBeanList Exception===" + je.toString());
+                LogUtil.e("frank", "jsonToBeanList Exception===" + je.toString(), BuildConfig.DEBUG);
             }
         }
         return new ArrayList<T>();
@@ -353,11 +354,11 @@ public class GsonUtils {
                     }
                 }
             }else {
-                LogUtil.e("Json_parase", "json2Map: 字符串格式错误");
+                LogUtil.e("Json_parase", "json2Map: 字符串格式错误", BuildConfig.DEBUG);
 
             }
         } catch (JSONException e) {
-            LogUtil.e("Json_parase", "json2Map: "+ e);
+            LogUtil.e("Json_parase", "json2Map: "+ e, BuildConfig.DEBUG);
             result = null;
         }
         return result;

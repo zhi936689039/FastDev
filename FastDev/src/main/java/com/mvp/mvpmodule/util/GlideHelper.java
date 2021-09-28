@@ -14,6 +14,7 @@ import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
+import com.mvp.mvpmodule.BuildConfig;
 
 /**
  * Created by Frank on 2017/3/31.
@@ -66,7 +67,7 @@ public enum GlideHelper {
                     .listener(new RequestListener<Drawable>() {
                         @Override
                         public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                            LogUtil.e("图片加载","图片加载失败:"+"图片地址:"+url+"----异常:"+e.toString());
+                            LogUtil.e("图片加载","图片加载失败:"+"图片地址:"+url+"----异常:"+e.toString(), BuildConfig.DEBUG);
                             return false;
                         }
 

@@ -3,6 +3,8 @@ package com.mvp.mvpmodule.util;
 import android.annotation.SuppressLint;
 import android.content.Context;
 
+import com.mvp.mvpmodule.BuildConfig;
+
 import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -262,7 +264,7 @@ public class TimeUtil {
             Date systemDate = dateFormat.parse(systemTime);
             Date paramDate = dateFormat.parse(paramTime);
             difference = systemDate.getTime() - paramDate.getTime();
-            LogUtil.e("系统时间：" , systemTime + "，给定时间：" + paramTime 	+ "，给定时间与当前系统时间的差值（以毫秒为单位）：" + difference + "毫秒");
+            LogUtil.e("系统时间：" , systemTime + "，给定时间：" + paramTime 	+ "，给定时间与当前系统时间的差值（以毫秒为单位）：" + difference + "毫秒", BuildConfig.DEBUG);
         } catch (Exception e) {
             e.printStackTrace();
         }

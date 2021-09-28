@@ -15,6 +15,7 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
+import com.mvp.mvpmodule.BuildConfig;
 import com.mvp.mvpmodule.util.LogUtil;
 import com.sdacn.yinpin.R;
 import com.sdacn.yinpin.common.constans.Constants;
@@ -85,7 +86,7 @@ public enum GlideHelper {
                     .listener(new RequestListener<Drawable>() {
                         @Override
                         public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                            LogUtil.e(Constants.logTag,"图片加载失败:"+e.toString());
+                            LogUtil.e(Constants.logTag,"图片加载失败:"+e.toString(), BuildConfig.DEBUG);
                             return false;
                         }
 

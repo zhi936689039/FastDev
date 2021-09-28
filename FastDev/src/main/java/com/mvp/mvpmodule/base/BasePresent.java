@@ -4,6 +4,8 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
+
+import com.mvp.mvpmodule.BuildConfig;
 import com.mvp.mvpmodule.http.ApiCallback;
 import com.mvp.mvpmodule.util.LogUtil;
 
@@ -65,7 +67,7 @@ public abstract class BasePresent implements IBasePresent{
     //RxJava取消观察者，防止内存泄漏
     public void onUnSubscribe() {
         if (mCompositeDisposable != null) {
-            LogUtil.e("请求","取消订阅");
+            LogUtil.e("请求","取消订阅", BuildConfig.DEBUG);
             mCompositeDisposable.dispose();
             mCompositeDisposable=null;
         }
@@ -80,11 +82,11 @@ public abstract class BasePresent implements IBasePresent{
     public void addSubscription(Observable observable,int type) {
         if (mCompositeDisposable == null) {
             //创建观察者
-            LogUtil.e("请求","创建观察者");
+            LogUtil.e("请求","创建观察者", BuildConfig.DEBUG);
             mCompositeDisposable = new CompositeDisposable();
         }
         //添加观察者
-        LogUtil.e("请求","创建观察者");
+        LogUtil.e("请求","创建观察者", BuildConfig.DEBUG);
         mCompositeDisposable.add(getApiCallBack(type));
         observable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

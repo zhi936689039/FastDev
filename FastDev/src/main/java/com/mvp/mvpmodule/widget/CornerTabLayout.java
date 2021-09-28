@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.mvp.mvpmodule.BuildConfig;
 import com.mvp.mvpmodule.R;
 import com.mvp.mvpmodule.util.DisplayUtil;
 import com.mvp.mvpmodule.util.LogUtil;
@@ -152,7 +153,7 @@ public class CornerTabLayout extends LinearLayout {
 
         for (int i = 0; i < adapterCount; i++) {
             String title = mPagerAdapter.getPageTitle(i) == null ? "" : mPagerAdapter.getPageTitle(i).toString();
-            LogUtil.e("首页标题","获取到的标题:"+title);
+            LogUtil.e("首页标题","获取到的标题:"+title, BuildConfig.DEBUG);
             dataList.add(title);
         }
 

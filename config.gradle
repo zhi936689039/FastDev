@@ -53,5 +53,5 @@ build.compileSdkVersion = 30
 build.minSdkVersion = 23
 build.targetSdkVersion = 30
 build.BuildVersionCode = 1
-build.BuildVersionName = "1.0.0"
+build.BuildVersionName = "1.0.3"
 dep.build = build

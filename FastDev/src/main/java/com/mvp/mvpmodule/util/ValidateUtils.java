@@ -5,6 +5,8 @@ import android.text.TextUtils;
 import com.google.i18n.phonenumbers.NumberParseException;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
 import com.google.i18n.phonenumbers.Phonenumber;
+import com.mvp.mvpmodule.BuildConfig;
+
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -156,7 +158,7 @@ public class ValidateUtils {
         PhoneNumberUtil phoneUtil = PhoneNumberUtil.getInstance();
         try{
             Phonenumber.PhoneNumber numberProto = phoneUtil.parse(phoneNumber, countryCode);
-            LogUtil.e("手机号","当前手机号是否合法:"+phoneUtil.isValidNumber(numberProto));
+            LogUtil.e("手机号","当前手机号是否合法:"+phoneUtil.isValidNumber(numberProto), BuildConfig.DEBUG);
             return phoneUtil.isValidNumber(numberProto);
         }catch (NumberParseException e){
             System.err.println("isPhoneNumberValid NumberParseException was thrown: " + e.toString());

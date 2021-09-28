@@ -1,4 +1,5 @@
 package com.sdacn.yinpin.module.main.present;
+import com.mvp.mvpmodule.BuildConfig;
 import com.mvp.mvpmodule.base.BasePresent;
 import com.mvp.mvpmodule.base.IBaseView;
 import com.mvp.mvpmodule.http.ApiCallback;
@@ -31,7 +32,7 @@ public class MainPresent extends BasePresent{
     protected void onSuccessRequest(int type, Object model) {
         if(isViewAttach()){
             getView().hideLoading();
-            LogUtil.e("测试","返回的数据:"+model);
+            LogUtil.e("测试","返回的数据:"+model, BuildConfig.DEBUG);
             if(isViewAttach()){
                 switch (type){
                     case AUDIO_TYPE:

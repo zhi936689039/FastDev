@@ -1,5 +1,6 @@
 package com.sdacn.yinpin.network.interceptor;
 
+import com.mvp.mvpmodule.BuildConfig;
 import com.mvp.mvpmodule.util.LogUtil;
 import com.mvp.mvpmodule.util.SettingsUtil;
 import com.mvp.mvpmodule.util.ValidateUtils;
@@ -29,7 +30,7 @@ public class HttpHeaderInterceptor implements Interceptor {
         Request oldRequest = chain.request();
         // 新的请求
         Request.Builder requestBuilder = oldRequest.newBuilder();
-        LogUtil.e("网络请求","当前请求url:"+oldRequest.url());
+        LogUtil.e("网络请求","当前请求url:"+oldRequest.url(), BuildConfig.DEBUG);
 //        if(UserHelper.getInstance().isLogin()){
 //            requestBuilder.addHeader("Authorization", UserHelper.getInstance().getCurrentUserToken());
 //            requestBuilder.addHeader("channel", ChannelUtil.getMainChannel());
@@ -41,7 +42,7 @@ public class HttpHeaderInterceptor implements Interceptor {
                 oldRequest.body());
         Request newRequest = requestBuilder.build();
 
-        LogUtil.e("网络请求","当前请求头:"+newRequest.headers().toString());
+        LogUtil.e("网络请求","当前请求头:"+newRequest.headers().toString(), BuildConfig.DEBUG);
         return chain.proceed(newRequest);
     }
 

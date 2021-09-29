@@ -24,29 +24,11 @@ public class LauncherUtil {
         if (pinfo != null) {
             for (int i = 0; i < pinfo.size(); i++) {
                 String pn = pinfo.get(i).packageName;
-                if (pn.equals("com.tencent.mobileqq")) {
+                if (pn.equals(packName)) {
                     return true;
                 }
             }
         }
         return false;
-    }
-    public static void launcherApp(Context context,String packageName){
-        //包管理器对象
-        PackageManager pm = context.getPackageManager();
-        //检查包名
-        PackageInfo packageInfo = null;
-        try {
-            packageInfo = pm.getPackageInfo(packageName,0);
-        }catch (PackageManager.NameNotFoundException e){
-            e.printStackTrace();
-        }
-        //包名存在则启动app
-        if (packageInfo != null){
-            Intent intent = pm.getLaunchIntentForPackage(packageName);
-            context.startActivity(intent);
-        }else{
-            Toast.makeText(context,"应用程序未安装",Toast.LENGTH_LONG).show();
-        }
     }
 }

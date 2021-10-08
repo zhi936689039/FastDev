@@ -2,11 +2,6 @@ package com.mvp.mvpmodule.util;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.google.i18n.phonenumbers.NumberParseException;
-import com.google.i18n.phonenumbers.PhoneNumberUtil;
-import com.google.i18n.phonenumbers.Phonenumber;
-import com.mvp.mvpmodule.BuildConfig;
-
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -145,25 +140,6 @@ public class ValidateUtils {
     }
     public static boolean isEmojiCharacter(char codePoint) {
         return !((codePoint == 0x0) || (codePoint == 0x9) || (codePoint == 0xA) || (codePoint == 0xD) || ((codePoint >= 0x20) && codePoint <= 0xD7FF))|| ((codePoint >= 0xE000) && (codePoint <= 0xFFFD)) || ((codePoint >= 0x10000) && (codePoint <= 0x10FFFF));
-    }
-    /**
-     * 根据区号判断是否是正确的电话号码
-     * @param phoneNumber :带国家码的电话号码
-     * @param countryCode :默认国家码
-     * return ：true 合法  false：不合法
-     */
-    public static boolean isPhoneNumberValid(String phoneNumber, String countryCode){
-
-        System.out.println("isPhoneNumberValid: "+phoneNumber+"/"+countryCode);
-        PhoneNumberUtil phoneUtil = PhoneNumberUtil.getInstance();
-        try{
-            Phonenumber.PhoneNumber numberProto = phoneUtil.parse(phoneNumber, countryCode);
-            LogUtil.e("手机号","当前手机号是否合法:"+phoneUtil.isValidNumber(numberProto), BuildConfig.DEBUG);
-            return phoneUtil.isValidNumber(numberProto);
-        }catch (NumberParseException e){
-            System.err.println("isPhoneNumberValid NumberParseException was thrown: " + e.toString());
-        }
-        return false;
     }
     public static boolean checkStrIsNum(String str) {
         for (int i = 0; i < str.length(); i++) {

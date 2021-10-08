@@ -31,7 +31,6 @@ android {
 dependencies {
     implementation fileTree(dir: '../libs', include: ['*.jar','*.aar'])
     api project(':smart_refresh_classics')
-    implementation files('libs\\libphonenumber-8.12.19.jar')
     testImplementation dep.junit
     api dep.androidx.appcompat
     androidTestImplementation dep.androidx.runner

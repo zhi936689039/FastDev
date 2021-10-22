@@ -88,10 +88,10 @@ public abstract class BaseFragmentForAndroidX<P extends IBasePresent> extends Fr
 
     @Override
     public void hideLoading() {
-        if(ValidateUtils.isValidate(mLoadingDialog)&&mLoadingDialog.isShowing()&&!getActivity().isFinishing()){
+        if(ValidateUtils.isValidate(mLoadingDialog)&&mLoadingDialog.isShowing()){
             mLoadingDialog.dismiss();
         }
-        if(ValidateUtils.isValidate(mNormalLoadingDialog)&&mNormalLoadingDialog.isShowing()&&!getActivity().isFinishing()){
+        if(ValidateUtils.isValidate(mNormalLoadingDialog)&&mNormalLoadingDialog.isShowing()){
             mNormalLoadingDialog.dismiss();
         }
     }

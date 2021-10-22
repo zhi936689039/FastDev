@@ -86,7 +86,7 @@ public abstract class BaseListFragmentForSupport<P extends IBasePresent>  extend
         if(ValidateUtils.isValidate(mLoadingDialog)&&mLoadingDialog.isShowing()&&!getActivity().isFinishing()){
             mLoadingDialog.dismiss();
         }
-        if(ValidateUtils.isValidate(mNormalLoadingDialog)&&mNormalLoadingDialog.isShowing()&&!getActivity().isFinishing()){
+        if(ValidateUtils.isValidate(mNormalLoadingDialog)&&mNormalLoadingDialog.isShowing()){
             mNormalLoadingDialog.dismiss();
         }
     }

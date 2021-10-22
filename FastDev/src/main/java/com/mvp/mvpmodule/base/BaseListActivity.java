@@ -112,10 +112,10 @@ public abstract class BaseListActivity <P extends IBasePresent> extends AppCompa
 
     @Override
     public void hideLoading() {
-        if(ValidateUtils.isValidate(mLoadingDialog)&&mLoadingDialog.isShowing()&&!((Activity)mContext).isFinishing()){
+        if(ValidateUtils.isValidate(mLoadingDialog)&&mLoadingDialog.isShowing()){
             mLoadingDialog.dismiss();
         }
-        if(ValidateUtils.isValidate(mNormalLoadingDialog)&&mNormalLoadingDialog.isShowing()&&!((Activity)mContext).isFinishing()){
+        if(ValidateUtils.isValidate(mNormalLoadingDialog)&&mNormalLoadingDialog.isShowing()){
             mNormalLoadingDialog.dismiss();
         }
     }

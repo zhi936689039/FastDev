@@ -107,9 +107,7 @@ public abstract class BaseListActivity <P extends IBasePresent> extends AppCompa
 
     @Override
     public void showLoading(Context context) {
-        if(ValidateUtils.isValidate(DialogUtil.showLoading(context))){
-            mNormalLoadingDialog= DialogUtil.showLoading(context);
-        }
+        mNormalLoadingDialog= DialogUtil.showLoading(context);
     }
 
     @Override

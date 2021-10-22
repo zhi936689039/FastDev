@@ -58,7 +58,7 @@ public class DialogUtil {
             });
             loading_tv.setText(message);
         }
-        if (context != null && !((Activity) context).isFinishing() && !loadingDialog.isShowing()) {
+        if (context != null && !((Activity) context).isFinishing()) {
             return loadingDialog;
         } else {
             return null;
@@ -88,7 +88,7 @@ public class DialogUtil {
             //loadingDialog.setOnDismissListener(dialog -> onLoadingDismiss());
             loading_tv.setText(context.getResources().getString(R.string.loading));
         }
-        if (context != null && !((Activity) context).isFinishing() && !loadingDialog.isShowing()) {
+        if (context != null && !((Activity) context).isFinishing()) {
             return loadingDialog;
         } else {
             return null;

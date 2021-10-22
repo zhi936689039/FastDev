@@ -75,7 +75,9 @@ public abstract class BaseListFragmentForAndroidX<P extends IBasePresent>  exten
 
     @Override
     public void showLoading(Context context) {
-        mNormalLoadingDialog= DialogUtil.showLoading(context);
+        if(ValidateUtils.isValidate(DialogUtil.showLoading(context))){
+            mNormalLoadingDialog= DialogUtil.showLoading(context);
+        }
     }
     @Override
     public void hideLoading() {

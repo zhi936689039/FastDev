@@ -44,7 +44,6 @@ public class DialogUtil {
             loadingDialog = new ProgressDialog(context,R.style.LoadingDialog);
             loadingDialog.setCancelable(isCancelable);
             loadingDialog.setCanceledOnTouchOutside(isCancelable);
-            loadingDialog.show();
             loadingDialog.setContentView(dialogLayout);// 设置布局 需要在show后执行 否则报requestFeature() must be called before adding content
             //loadingDialog.setOnDismissListener(dialog -> onLoadingDismiss());
             loadingDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
@@ -82,7 +81,6 @@ public class DialogUtil {
             loadingDialog = new ProgressDialog(context, R.style.LoadingDialog);
             loadingDialog.setCancelable(false);
             loadingDialog.setCanceledOnTouchOutside(false);
-            loadingDialog.show();
             loadingDialog.setContentView(dialogLayout);// 设置布局 需要在show后执行 否则报requestFeature() must be called before adding content
             //loadingDialog.setOnDismissListener(dialog -> onLoadingDismiss());
             loading_tv.setText(context.getResources().getString(R.string.loading));

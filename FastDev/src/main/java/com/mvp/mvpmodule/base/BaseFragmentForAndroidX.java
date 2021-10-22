@@ -83,7 +83,9 @@ public abstract class BaseFragmentForAndroidX<P extends IBasePresent> extends Fr
 
     @Override
     public void showLoading(Context context) {
-        mNormalLoadingDialog= DialogUtil.showLoading(context);
+        if(ValidateUtils.isValidate(DialogUtil.showLoading(context))){
+            mNormalLoadingDialog= DialogUtil.showLoading(context);
+        }
     }
 
     @Override

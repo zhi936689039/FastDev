@@ -59,8 +59,11 @@ public class DialogUtil {
         }
         if (context!= null && !((Activity)context).isFinishing() &&!loadingDialog.isShowing()) {
             loadingDialog.show();
+            return loadingDialog;
+        }else{
+            return null;
         }
-        return loadingDialog;
+
     }
 
     /**
@@ -86,8 +89,10 @@ public class DialogUtil {
         }
         if (context!= null && !((Activity)context).isFinishing() &&!loadingDialog.isShowing()) {
             loadingDialog.show();
+            return loadingDialog;
+        }else{
+            return null;
         }
-        return loadingDialog;
     }
     public interface LoadingDialogListener{
         void onLoadingDismiss();

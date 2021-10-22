@@ -81,7 +81,9 @@ public abstract class BaseFragmentForSupport<P extends IBasePresent> extends Fra
 
     @Override
     public void showLoading(Context context) {
-        mNormalLoadingDialog= DialogUtil.showLoading(context);
+        if(ValidateUtils.isValidate(DialogUtil.showLoading(context))){
+            mNormalLoadingDialog= DialogUtil.showLoading(context);
+        }
     }
 
     @Override

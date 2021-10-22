@@ -117,7 +117,9 @@ public  abstract class BaseActivity<P extends IBasePresent> extends AppCompatAct
 
     @Override
     public void showLoading(Context context) {
-        mNormalLoadingDialog=DialogUtil.showLoading(context);
+        if(ValidateUtils.isValidate(DialogUtil.showLoading(context))){
+            mNormalLoadingDialog=DialogUtil.showLoading(context);
+        }
     }
 
     @Override
